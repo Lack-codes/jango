@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book_Table </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Product Form -->
+    <div class="container mt-4">
+        <form method="post" class="mb-5 p-4 bg-white rounded shadow-sm">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label>  Book Title</label>
+                <input type="text" name="bok_tit" class="form-control" placeholder="Enter product name">
+            </div>
+            <div class="mb-3">
+                <label> Author_Name </label>
+                <input type="text" name="auth_name" class="form-control" placeholder="Enter brand name">
+            </div>
+            <div class="mb-3">
+                <label>   Genre </label>
+                <input type="text" name="grnre" class="form-control" placeholder="Enter price">
+            </div>
+            <div class="mb-3">
+                <label> Published_Year </label>
+                <input type="text" name="pub_year" class="form-control" placeholder="YYYY-MM-DD">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Welcome Header -->
+        <h1 class="text-center mb-4">
+            📚 Welcome to Story Haven{% if pro_vew %},  {% endif %}
+        </h1>
+
+        <!-- Product Table -->
+        <table class="table table-bordered table-hover text-center bg-white shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>  Book Title</th>
+                    <th> Author Name </th>
+                    <th>  Genre</th>
+                    <th> Published Year </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in book_vew  %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.Book_Title  }}</td>
+                    <td>{{ i.Author_Name  }}</td>
+                    <td>{{ i.Genre  }}</td>
+                    <td>{{ i.Published_Year  }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No products available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Footer -->
+        <footer class="text-center mt-5 py-3 bg-dark text-white">
+           ✨ Thank you for visiting Story Haven! Keep reading, keep exploring! ✨
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

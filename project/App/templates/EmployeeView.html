@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Employee View</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">💐Welcome to Wipro, {{ emp_data.Employee_Name}}</h1>
+
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date of Joining</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in emp_data %}
+                <tr>
+                      <td>{{ forloop.counter }}</td> 
+                    <td>{{ i.Employee_Name }}</td>
+                    <td>{{ i.Age }}</td>
+                    <td>{{ i.Email_Address }}</td>
+                    <td>{{ i.Date_of_Joining }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="text-center mt-4 text-secondary">
+   “We're glad to have you as part of the team! 🤝”
+</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
